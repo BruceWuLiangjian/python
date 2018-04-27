@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>{{title}}</title>
+ </head>
+ <body>
+  <h1>Hello,{{user.name}}</h1>
+  <li>age:{{user.age}}</li>
+  <li>sex:{{user.sex}}</li>
+  <li>say:{{user.say}}</li>
+  
+	{%if not user.age %}
+		<li>user.age 为0</li>
+	{%endif%}
+	
+	{% if not user1 %}
+		<li>user1不存在</li>
+	{%endif%}
+	
+	{%if not user.name%}
+		<li>user.name 为空</li>
+	{%endif%}	
+  
+	{%for book in book_list reversed%}
+		<li>{{book}}</li>
+	{%endfor%}
+
+	{%for key,value in user.items %}
+		<li>{{key}}:{{value}}</li>
+	{%endfor%}
+	
+	{%for book in book_list%}
+		{%if forloop.first%}
+			<li>begin</li>
+		{%endif%}
+		<li>{{book}}</li>
+		{{forloop.last}}
+		<li>forloop.counter:{{forloop.counter}}</li>
+		<li>forloop.counter0:{{forloop.counter0}}</li>
+		<li>forloop.revcounter:{{forloop.revcounter}}</li>
+		<li>forloop.revcounter0:{{forloop.revcounter0}}</li>
+			
+			{%if forloop.last%}
+				<li>end</li>
+			{%endif%}
+	{%empty%}
+		<li>没有书籍</li>
+	{%endfor%}
+  
+	{%for book in book_list reversed%}
+		<li>{{book}}</li>
+	{%empty%}
+		<li>没有书籍</li>
+	{%endfor%}
+
+	{%if book_list%}
+		{%for book in book_list reversed%}
+			<li>{{book}}</li>
+		{%endfor%}
+	{%else%}
+		<li>没有书籍</li>
+	{%endif%}
+  
+  
+ </body>
+</html>
